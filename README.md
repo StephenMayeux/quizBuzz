@@ -1,1 +1,14 @@
-# Project Name
+# quizBuzz - Buzzfeed Quiz + React + Redux
+
+## Live Demo
+
+Coming soon...
+
+## Installation
+
+Really simple installation with Git.
+
+1. `git clone https://github.com/StephenMayeux/quizBuzz`
+2. `cd quizBuzz`
+3. `npm install` and wait a moment.
+4. `npm run start` and then go to `localhost:8080`
