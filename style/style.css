@@ -1,0 +1,37 @@
+body {
+  background: url(../assets/images/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 50px;
+}
+
+a:hover {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.site-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.site-title a {
+  background-color: #f96e5b;
+  color: #fff;
+  display: inline-block;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.site-title-dark a {
+  background-color: #333;
+  color: #fff;
+  display: inline-block;
+  padding: 16px;
+  text-decoration: none;
+}
