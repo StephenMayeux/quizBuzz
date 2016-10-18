@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 
+import QuestionsReducer from './reducer_questions';
+import RappersReducer from './reducer_rappers';
+
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  questions: QuestionsReducer,
+  rappers: RappersReducer
 });
 
 export default rootReducer;
