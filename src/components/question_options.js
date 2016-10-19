@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import * as actions from '../actions';
 
 class QuestionOptions extends Component {
   constructor(props) {
@@ -8,18 +11,20 @@ class QuestionOptions extends Component {
     };
   }
 
-  handleSelect(img) {
-    console.log(img);
+  // TODO: remove this.setState({}). Install thunk. Handle in action creator
+  handleSelect(img, points, id) {
     this.setState({ selectedOption: img });
+    this.props.addOption(id, points);
   }
 
+  // TODO: pull out conditional className into helper method
   renderOptions() {
     const root = '/assets/images/';
-    let { options } = this.props;
+    let { options, id } = this.props;
     return options.map(({ img, points }) => {
       return (
         <div key={points} className="col-md-4">
-          <div onClick={() => this.handleSelect(img)} className={this.state.selectedOption === img ? 'thumbnail chosen' : 'thumbnail'}>
+          <div onClick={() => this.handleSelect(img, points, id)} className={this.state.selectedOption === img ? 'thumbnail chosen' : 'thumbnail'}>
             <img src={`${root}${img}`} />
           </div>
         </div>
@@ -36,4 +41,4 @@ class QuestionOptions extends Component {
   }
 }
 
-export default QuestionOptions;
+export default connect(null, actions)(QuestionOptions);
