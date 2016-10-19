@@ -10,7 +10,7 @@ class Questions extends Component {
     return this.props.questions.map(({ id, question, options }) => {
       return (
         <div key={id} className="question-card">
-          <h4 className="question-title">{question}</h4>
+          <h3 className="question-title">{question}</h3>
           <QuestionOptions options={options} id={id} />
         </div>
       );

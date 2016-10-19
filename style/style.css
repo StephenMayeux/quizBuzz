@@ -44,7 +44,7 @@ a:hover {
 .question-title {
   background: url(../assets/images/lines.png) bottom repeat-x;
   font-family: 'Oswald', sans-serif;
-  font-size: 24px;
+  font-size: 32px;
   line-height: 1;
   margin: 24px 0;
   padding: 24px 0;
@@ -52,10 +52,15 @@ a:hover {
   text-transform: capitalize;
 }
 
-.thumbnail.chosen {
-  background-color: red !important;
+.thumbnail:hover {
+  background-color: #333 !important;
 }
 
-.thumbnail img {
-  max-height: 150px;
+.thumbnail.chosen {
+  background-color: #f96e5b !important;
+}
+
+.result-container {
+  background-color: #fff;
+  padding: 20px;
 }

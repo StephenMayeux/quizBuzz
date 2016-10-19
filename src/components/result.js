@@ -18,6 +18,7 @@ class Result extends Component {
       <div>
         <h1>{`You are ${rapper}!`}</h1>
         <p>{description}</p>
+        <img src={`/assets/images/${image}`}/>
       </div>
     );
   }
@@ -27,7 +28,7 @@ class Result extends Component {
     const size = _.size(chosen);
     if (size === 5) {
       return (
-        <div>
+        <div className="result-container">
           {this.addPoints(chosen)}
         </div>
       );
