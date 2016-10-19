@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Questions from './questions';
+
 export default class App extends Component {
   render() {
     return (
@@ -10,6 +12,7 @@ export default class App extends Component {
         <h2 className="site-title-dark">
           <a href="/">Which 90s Hip-Hop Artist Is Your Spirit Animal?</a>
         </h2>
+        <Questions />
       </div>
     );
   }
