@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-Coming soon...
+https://quizbuzzquiz.herokuapp.com/
 
 ## Installation
 
