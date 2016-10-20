@@ -3,43 +3,43 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 class Result extends Component {
-  addPoints(chosen) {
-    const points = _.reduce(chosen, (result, value) => {
-      return result + value;
-    }, 0);
-    return this.determineRapper(points);
-  }
 
-  determineRapper(points) {
-    const { rapper, image, description } = _.head(_.filter(this.props.rappers, ({ floor, ceiling }) => {
-      return _.inRange(points, floor, ceiling);
-    }));
+  randomlySelectRapper() {
+    const { rapper, image, description } = _.sample(this.props.rappers);
     return (
-      <div>
+      <div className="selected-rapper">
         <h1>{`You are ${rapper}!`}</h1>
         <p>{description}</p>
-        <img src={`/assets/images/${image}`}/>
+        <img className="img-rounded" src={`/assets/images/${image}`}/>
       </div>
     );
   }
 
   render() {
-    const { chosen } = this.props;
-    const size = _.size(chosen);
-    if (size === 5) {
+    const { chosenOptions } = this.props;
+    const numChosen = _.size(chosenOptions);
+    if (numChosen === 5) {
       return (
-        <div className="result-container">
-          {this.addPoints(chosen)}
+        <div className="result-container" ref="results">
+          <div className="result-container-item">
+            {this.randomlySelectRapper()}
+            <form>
+              <div className="form-group">
+                <label>Your email</label>
+                <input className="form-control" placeholder="test@example.com" autoFocus />
+              </div>
+              <button className="btn btn-primary">Email My Results</button>
+            </form>
+          </div>
         </div>
       );
     }
-
     return null;
   }
 }
 
 function mapStateToProps(state) {
-  return { chosen: state.chosen, rappers: state.rappers }
+  return { chosenOptions: state.chosenOptions, rappers: state.rappers }
 }
 
 export default connect(mapStateToProps)(Result);

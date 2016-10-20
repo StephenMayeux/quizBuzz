@@ -1,6 +1,6 @@
-export function addOption(id, points) {
+export function addOption(id) {
   let option = {};
-  option[id] = points;
+  option[id] = true;
   return {
     type: 'ADD_OPTIONS',
     payload: option
