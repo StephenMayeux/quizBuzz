@@ -8,7 +8,7 @@ class Result extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayModal: true,
+      email: '',
       rapper: '',
       image: '',
       description: ''
@@ -21,18 +21,23 @@ class Result extends Component {
   }
 
   hideModal() {
-    this.setState({ displayModal: false });
+    this.props.hideModal();
+  }
+
+  handleInputChange(event) {
+    this.setState({ email: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.sendEmail(this.refs.email.value, this.state.rapper, this.state.description);
+    const { email, rapper, description } = this.state;
+    this.props.sendEmail(email, rapper, description);
   }
 
   render() {
     const { chosenOptions } = this.props;
     const numChosen = _.size(chosenOptions);
-    if (numChosen === 5 && this.state.displayModal) {
+    if (numChosen === 5 && this.props.displayModal) {
       return (
         <div className="result-container" ref="results">
           <div className="result-container-item">
@@ -54,7 +59,7 @@ class Result extends Component {
                 <input
                   type="email"
                   value={this.state.email}
-                  ref="email"
+                  onChange={this.handleInputChange.bind(this)}
                   className="form-control"
                   placeholder="test@example.com"
                   autoFocus />
@@ -70,7 +75,11 @@ class Result extends Component {
 }
 
 function mapStateToProps(state) {
-  return { chosenOptions: state.chosenOptions, rappers: state.rappers }
+  return {
+    chosenOptions: state.chosenOptions,
+    rappers: state.rappers,
+    displayModal: state.displayModal
+   }
 }
 
 export default connect(mapStateToProps, actions)(Result);
