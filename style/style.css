@@ -60,6 +60,10 @@ a:hover {
   background-color: #f96e5b !important;
 }
 
+#option-img {
+  margin-bottom: 5px;
+}
+
 .result-container {
   display: flex;
   align-items: center;
