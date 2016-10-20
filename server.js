@@ -4,23 +4,29 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const path = require('path');
+const mailer = require('express-mailer');
+require('dotenv').config();
+
 const port = process.env.PORT || 8080;
 const app = express();
-const nodemailer = require('nodemailer');
-const cors = require('cors');
 
 // App set up
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
 app.use(express.static(__dirname));
 app.use(logger('combined'));
-app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 
-// Nodemailer set up
-const smtpTransport = nodemailer.createTransport('SMTP', {
-  service: 'Gmail',
+// Express-mailer set up
+mailer.extend(app, {
+  from: 'Ya boi, Stephen',
+  host: 'smtp.gmail.com',
+  secureConnection: true,
+  port: 465,
+  transportMethod: 'SMTP',
   auth: {
-    user: 'teststephen22@gmail.com',
-    pass: 'monkeydick'
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
@@ -29,21 +35,20 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
-// Nodemailer post request
-app.post('/email', (req, res) => {
-  const mailOptions = {
-    from: 'teststephen22@gmail.com',
+// Post request for email
+app.post('/email', (req, res, next) => {
+  app.mailer.send('email', {
     to: req.body.email,
-    subject: 'Test email for Steven',
-    text: 'Hopefully this back end works...'
-  };
-
-  smtpTransport.sendMail(mailOptions, (err, response) => {
-    res.send('email sent!');
-  })
+    subject: 'Your quizBuzz Results!',
+    rapper: req.body.rapper,
+    description: req.body.description
+  }, (err) => {
+    if (err) { next(err); }
+    res.send('Email successfully sent!');
+  });
 });
 
-// Spin it up on
+// Spin up that server!
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server spinning on port', port);

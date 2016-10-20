@@ -29,16 +29,18 @@
     "axios": "^0.15.2",
     "babel-preset-stage-1": "^6.1.18",
     "body-parser": "^1.15.2",
-    "cors": "^2.8.1",
+    "dotenv": "^2.0.0",
+    "express-mailer": "^0.3.1",
     "lodash": "^3.10.1",
     "morgan": "^1.7.0",
-    "nodemailer": "^2.6.4",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-keydown": "^1.6.2",
     "react-redux": "^4.0.0",
     "react-router": "^2.0.1",
     "redux": "^3.0.4",
     "redux-logger": "^2.7.0",
-    "redux-promise": "^0.5.3"
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.1.0"
   }
 }
