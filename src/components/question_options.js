@@ -16,7 +16,6 @@ class QuestionOptions extends Component {
     this.props.addOption(id);
   }
 
-  // TODO: pull out conditional className into helper method
   renderOptions() {
     const root = '/assets/images/';
     let { options, id } = this.props;

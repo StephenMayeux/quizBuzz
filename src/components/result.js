@@ -37,6 +37,7 @@ class Result extends Component {
   render() {
     const { chosenOptions } = this.props;
     const numChosen = _.size(chosenOptions);
+
     if (numChosen === 5 && this.props.displayModal) {
       return (
         <div className="result-container" ref="results">

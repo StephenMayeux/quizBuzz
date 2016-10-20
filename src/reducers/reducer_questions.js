@@ -26,7 +26,7 @@ export default function() {
     },
     {
       id: 3,
-      question: 'Choose a movie',
+      question: 'Choose a movie genre',
       options: [
         { img: 'movie1.jpg', points: 1 },
         { img: 'movie2.jpg', points: 2 },

@@ -83,3 +83,21 @@ a:hover {
   display: block;
   margin: 20px auto;
 }
+
+.fade-enter {
+  right: 100px;
+}
+
+.fade-enter-active {
+  right: 0px;
+  transition: .5s ease-in all;
+}
+
+.fade-leave {
+  right: 0px;
+}
+
+.fade-leave-active {
+  right: -100px;
+  transition: .5s ease-in all;
+}
