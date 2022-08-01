@@ -24,8 +24,8 @@ class QuestionOptions extends Component {
       return (
         <div key={img} className="col-md-4">
           <div onClick={() => this.handleSelect(img, id)} className={this.state.selectedOption === img ? 'thumbnail chosen' : 'thumbnail'}>
-            <img id="option-img" src={`${root}${img}`} />
-            <i className={this.state.selectedOption === img ? 'fa fa-check-square-o fa-lg' : 'fa fa-square-o fa-lg'}></i>
+            <img id="option-img" className="question-img" src={`${root}${img}`} />
+            <i className={this.state.selectedOption === img ? 'fa fa-check-square-o fa-lg iconbox' : 'fa fa-square-o fa-lg iconbox'}></i>
           </div>
         </div>
       );

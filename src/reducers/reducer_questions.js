@@ -2,14 +2,14 @@ export default function() {
   return [
     {
       id: 1,
-      question: 'Choose a car',
+      question: 'Choose a slogan',
       options: [
-        { img: 'car1.jpg', points: 1 },
-        { img: 'car2.jpg', points: 2 },
-        { img: 'car3.jpg', points: 3 },
-        { img: 'car4.jpg', points: 4 },
-        { img: 'car5.jpg', points: 5 },
-        { img: 'car6.jpg', points: 6 }
+        { img: 'slogan1.gif', points: 1 },
+        { img: 'slogan2.gif', points: 2 },
+        { img: 'slogan3.gif', points: 3 },
+        { img: 'slogan4.gif', points: 4 },
+        { img: 'slogan5.gif', points: 5 },
+        { img: 'slogan6.gif', points: 6 }
       ]
     },
     {

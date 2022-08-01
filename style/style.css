@@ -105,3 +105,20 @@ a:hover {
   right: -100px;
   transition: .5s ease-in all;
 }
+
+.thumbnail {
+    height: 245px;
+}
+
+.question-img {
+    float: left;
+    width: 300px;
+    object-fit: scale-down;
+}
+
+.iconbox {
+    position: absolute;
+    right:    0;
+    bottom:   0;
+}
+
